@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:mohit_portfolio/colors/colors.dart';
-import 'package:mohit_portfolio/pages/hello.dart';
+import 'package:mohit_portfolio/constants.dart';
+import 'package:mohit_portfolio/router_config.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: _router,
+      routerConfig: getRouterConfig(context),
       title: 'Mohit Tater',
       theme: ThemeData(
           // This is the theme of your application.
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
 
           // custom font and textTheme configuration
-          fontFamily: 'FiraCode',
+          fontFamily: kFontFamily,
           textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 62),
             headline2: TextStyle(fontSize: 32),
@@ -40,75 +39,8 @@ class MyApp extends StatelessWidget {
           )),
     );
   }
-
-  final GoRouter _router = GoRouter(
-    routes: <GoRoute>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) => Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 56,
-            leadingWidth: 200,
-            backgroundColor: primaryColor,
-            shape: Border.all(color: secondaryGreyColor),
-            leading: Container(
-              margin: const EdgeInsets.only(left: 22),
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'mohit-tater',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-            ),
-            title: Row(
-              children: const [
-                NavElement(title: '_hello'),
-                NavElement(title: '_about_me'),
-                NavElement(title: '_projects'),
-                Spacer(),
-                NavElement(title: '_contact_me'),
-              ],
-            ),
-          ),
-          body: const Hello(),
-        ),
-        routes: <GoRoute>[
-          GoRoute(
-            path: 'page2',
-            builder: (BuildContext context, GoRouterState state) => Scaffold(
-              appBar: AppBar(
-                title: const Text('page 2'),
-              ),
-              body: const Center(child: Text('Page 2')),
-            ),
-          ),
-        ],
-      ),
-    ],
-  );
 }
 
-class NavElement extends StatelessWidget {
-  const NavElement({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 56,
-      padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(border: Border.all(color: secondaryGreyColor)),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyText1,
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
