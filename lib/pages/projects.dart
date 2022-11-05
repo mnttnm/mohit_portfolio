@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/header.dart';
 
 class ProjectPage extends StatelessWidget {
   static const projectPageRoute = 'projects';
@@ -8,11 +7,8 @@ class ProjectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: Header(),
-      body: Center(
-        child: Text('Projects Page'),
-      ),
+    return const Center(
+      child: Text('Projects Page'),
     );
   }
 }

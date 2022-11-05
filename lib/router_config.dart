@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mohit_portfolio/header.dart';
 import 'package:mohit_portfolio/pages/about_me.dart';
 
 import 'pages/contact.dart';
@@ -13,7 +14,7 @@ GoRouter getRouterConfig(BuildContext context) => GoRouter(
             name: HelloPage.helloPageRoute,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 const NoTransitionPage(
-                  child: HelloPage(),
+                  child: TabbedHeader(),
                 ),
             routes: [
               GoRoute(

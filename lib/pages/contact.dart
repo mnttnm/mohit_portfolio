@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/header.dart';
 
 class ContactPage extends StatelessWidget {
   static const contactPageRoute = 'contact';
@@ -7,11 +6,8 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: Header(),
-      body: Center(
-        child: Text('Contact Page'),
-      ),
+    return const Center(
+      child: Text('Contact Page'),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/header.dart';
 
 class AboutMePage extends StatelessWidget {
   static const aboutMePageRoute = 'aboutme';
@@ -7,11 +6,8 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: Header(),
-      body: Center(
-        child: Text('AboutMe Page'),
-      ),
+    return const Center(
+      child: Text('AboutMe Page'),
     );
   }
 }
