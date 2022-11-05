@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mohit_portfolio/header.dart';
-import 'package:mohit_portfolio/pages/about_me.dart';
+import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 
 import 'pages/contact.dart';
-import 'pages/hello.dart';
+import 'pages/hello/hello.dart';
 import 'pages/projects.dart';
 
 GoRouter getRouterConfig(BuildContext context) => GoRouter(

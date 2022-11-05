@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
-import 'package:mohit_portfolio/pages/about_me.dart';
+import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 import 'package:mohit_portfolio/pages/contact.dart';
-import 'package:mohit_portfolio/pages/hello.dart';
+import 'package:mohit_portfolio/pages/hello/hello.dart';
 import 'package:mohit_portfolio/pages/projects.dart';
 
 class Header extends StatelessWidget with PreferredSizeWidget {
@@ -12,7 +12,9 @@ class Header extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: primaryColor,
+      centerTitle: false,
+      titleSpacing: 0.0,
+      backgroundColor: primaryColorDark,
       leading: Container(
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.only(left: 20),
@@ -21,7 +23,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
-      leadingWidth: 200,
+      leadingWidth: 400,
       shape: Border.all(color: secondaryGreyColor),
       title: const TabBar(
         isScrollable: true,
@@ -138,7 +140,8 @@ class TabbedHeader extends StatelessWidget {
           AboutMePage(),
           ProjectPage(),
           ContactPage(),
-        ]),
+          ],
+        ),
       ),
     );
   }
