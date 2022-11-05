@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
 import 'package:mohit_portfolio/constants.dart';
-import 'package:mohit_portfolio/router_config.dart';
+import 'package:mohit_portfolio/header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: getRouterConfig(context),
+    return MaterialApp(
       title: 'Mohit Tater',
       theme: ThemeData(
           // This is the theme of your application.
@@ -27,7 +26,6 @@ class MyApp extends StatelessWidget {
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
           brightness: Brightness.dark,
-
           // custom font and textTheme configuration
           fontFamily: kFontFamily,
           textTheme: const TextTheme(
@@ -37,6 +35,7 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(fontSize: 18, color: secondaryGreyColor),
             bodyText2: TextStyle(fontSize: 14, color: secondaryGreyColor),
           )),
+      home: const TabbedHeader(),
     );
   }
 }

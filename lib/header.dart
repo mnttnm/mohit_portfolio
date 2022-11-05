@@ -21,7 +21,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
-      leadingWidth: 300,
+      leadingWidth: 200,
       shape: Border.all(color: secondaryGreyColor),
       title: const TabBar(
         isScrollable: true,
