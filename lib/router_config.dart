@@ -5,7 +5,7 @@ import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 
 import 'pages/contact.dart';
 import 'pages/hello/hello.dart';
-import 'pages/projects.dart';
+import 'pages/projects/projects.dart';
 
 GoRouter getRouterConfig(BuildContext context) => GoRouter(
       routes: <GoRoute>[

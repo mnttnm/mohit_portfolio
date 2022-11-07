@@ -4,7 +4,7 @@ import 'package:mohit_portfolio/colors/colors.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 import 'package:mohit_portfolio/pages/contact.dart';
 import 'package:mohit_portfolio/pages/hello/hello.dart';
-import 'package:mohit_portfolio/pages/projects.dart';
+import 'package:mohit_portfolio/pages/projects/projects.dart';
 
 class Header extends StatelessWidget with PreferredSizeWidget {
   const Header({super.key});
@@ -132,7 +132,7 @@ class TabbedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 4,
-      initialIndex: 1,
+      initialIndex: 2,
       child: Scaffold(
         appBar: Header(),
         body: TabBarView(children: [
