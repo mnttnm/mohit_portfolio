@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
-import 'package:mohit_portfolio/file_view.dart';
+import 'package:mohit_portfolio/pages/aboutme/file_view.dart';
+import 'package:mohit_portfolio/pages/aboutme/about_me_state_notifier.dart';
 import 'package:mohit_portfolio/pages/aboutme/aboutme_resources_structure.dart';
 import 'package:mohit_portfolio/resource.dart';
+import 'package:mohit_portfolio/widgets/page_content_layout.dart';
 
 class AboutMePage extends StatelessWidget {
   static const aboutMePageRoute = 'aboutme';
@@ -11,39 +13,11 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: primaryColorDark,
-      body: Row(
-        children: [
-          Container(
-            width: 40,
-            height: double.infinity,
-            decoration: BoxDecoration(
-                border: Border.all(
-              color: secondaryGreyColor,
-            )),
-          ),
-          Container(
-            width: 360,
-            height: double.infinity,
-            decoration: BoxDecoration(
-                border: Border.all(
-              color: secondaryGreyColor,
-            )),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                    height: 30,
-                    child: Text(aboutMeResourceStructure.treeTitle)),
-                CategoryStructure(
-                  categoryResourceTree: aboutMeResourceStructure,
-                )
-              ],
-            ),
-          ),
-          const Expanded(child: FileView())
-        ],
+    return PageContentLayout(
+      pageTitle: aboutMePageRoute,
+      mainAreaChild: FileView(),
+      sideBarChild: CategoryStructure(
+        categoryResourceTree: aboutMeResourceStructure,
       ),
     );
   }

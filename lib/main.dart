@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
 import 'package:mohit_portfolio/constants.dart';
-import 'package:mohit_portfolio/header.dart';
+import 'package:mohit_portfolio/widgets/header.dart';
 
 void main() {
   runApp(

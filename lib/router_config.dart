@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mohit_portfolio/header.dart';
+import 'package:mohit_portfolio/widgets/header.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 
 import 'pages/contact.dart';
