@@ -14,7 +14,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       centerTitle: false,
       titleSpacing: 0.0,
-      backgroundColor: primaryColorDark,
+      backgroundColor: primaryColorLight,
       leading: Container(
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.only(left: 20),

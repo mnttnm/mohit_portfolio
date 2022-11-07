@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
 import 'package:mohit_portfolio/constants.dart';
 import 'package:mohit_portfolio/header.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    // For widgets to be able to read providers, we need to wrap the entire
+    // application in a "ProviderScope" widget. This is where the state of our providers will be stored.
+    // Adding ProviderScope enables Riverpod for the entire project
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

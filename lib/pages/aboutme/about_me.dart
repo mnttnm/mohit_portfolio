@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/file_view.dart';
 import 'package:mohit_portfolio/pages/aboutme/aboutme_resources_structure.dart';
 import 'package:mohit_portfolio/resource.dart';
 
@@ -9,34 +11,40 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 40,
-          height: double.infinity,
-          decoration: BoxDecoration(
-              border: Border.all(
-            color: secondaryGreyColor,
-          )),
-        ),
-        Container(
-          width: 360,
-          height: double.infinity,
-          decoration: BoxDecoration(
-              border: Border.all(
-            color: secondaryGreyColor,
-          )),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(aboutMeResourceStructure.treeTitle),
-              CategoryStructure(
-                categoryResourceTree: aboutMeResourceStructure,
-              )
-            ],
+    return Scaffold(
+      backgroundColor: primaryColorDark,
+      body: Row(
+        children: [
+          Container(
+            width: 40,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.all(
+              color: secondaryGreyColor,
+            )),
           ),
-        ),
-      ],
+          Container(
+            width: 360,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.all(
+              color: secondaryGreyColor,
+            )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                    height: 30,
+                    child: Text(aboutMeResourceStructure.treeTitle)),
+                CategoryStructure(
+                  categoryResourceTree: aboutMeResourceStructure,
+                )
+              ],
+            ),
+          ),
+          const Expanded(child: FileView())
+        ],
+      ),
     );
   }
 }
@@ -56,11 +64,8 @@ class CategoryStructure extends StatelessWidget {
           if (e.type == ResourceType.folder) {
             return ExpandableComponent(resource: e);
           } else {
-            return TextButton(
-              child: Text(
-                e.name,
-              ),
-              onPressed: () => {},
+            return ExpandedFile(
+              file: e,
             );
           }
         }).toList(),
@@ -126,18 +131,47 @@ class _ExpandableComponentState extends State<ExpandableComponent> {
                   child: ExpandableComponent(resource: e),
                 );
               } else {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
-                  child: TextButton(
-                    child: Text('|_ ${e.name}'),
-                    onPressed: () {},
-                  ),
+                return ExpandedFile(
+                  file: e,
                 );
               }
             },
           ).toList()
         ]
       ],
+    );
+  }
+}
+
+class ExpandedFile extends ConsumerWidget {
+  const ExpandedFile({
+    Key? key,
+    required this.file,
+  }) : super(key: key);
+
+  final Resource file;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AboutMePageState aboutMePageState = ref.watch(aboutMeProvider);
+
+    final isActive = aboutMePageState.activeFile != null &&
+        aboutMePageState.activeFile!.name == file.name;
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: TextButton(
+        // Todo: fix issue where the active file color is not restoring to default if \
+        // it is the last file which is being closed.
+        style: TextButton.styleFrom(
+          foregroundColor:
+              isActive == true ? accentOrangeColor : secondaryBlueColor,
+        ),
+        child: Text(
+          '|_ ${file.name}',
+        ),
+        onPressed: () {
+          ref.read(aboutMeProvider.notifier).onSidePanelFileSelection(file);
+        },
+      ),
     );
   }
 }
