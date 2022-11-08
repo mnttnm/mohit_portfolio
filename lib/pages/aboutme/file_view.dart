@@ -59,6 +59,7 @@ class FileTabElement extends ConsumerWidget {
       padding: const EdgeInsets.all(4.0),
       color: isSelected == true ? primaryColorDark : primaryColorLight,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextButton(

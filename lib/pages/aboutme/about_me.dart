@@ -15,7 +15,7 @@ class AboutMePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageContentLayout(
       pageTitle: aboutMePageRoute,
-      mainAreaChild: FileView(),
+      mainAreaChild: const FileView(),
       sideBarChild: CategoryStructure(
         categoryResourceTree: aboutMeResourceStructure,
       ),

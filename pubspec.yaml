@@ -55,6 +55,8 @@ flutter:
   assets:
     - images/mohit-profile-pic.jpeg
     - assets/markdowns/
+    - assets/images/project-placeholder.png
+    - assets/icons/github_png256.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

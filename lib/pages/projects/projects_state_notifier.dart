@@ -28,6 +28,17 @@ const List<Project> listOfProjects = [
       title: 'project 3',
       projectDescription: 'this is project 3',
       techStackUsed: [TechStack.python]),
+  Project(
+      title: 'project 1',
+      projectDescription: 'this is project 1',
+      techStackUsed: [
+        TechStack.dart,
+        TechStack.flutter,
+      ]),
+  Project(
+      title: 'project 2',
+      projectDescription: 'this is project 2',
+      techStackUsed: [TechStack.typescript, TechStack.react]),
 ];
 
 class Project {

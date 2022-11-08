@@ -18,3 +18,5 @@ const gradientColorBlue = Color.fromARGB(255, 77, 91, 206);
 const gradientColorGreen = Color.fromARGB(255, 67, 217, 173);
 
 const darkGreyColor = Color.fromARGB(255, 30, 45, 61);
+const projectCardColor = Color.fromARGB(255, 1, 18, 33);
+const projectTitleColor = Color.fromARGB(255, 85, 101, 232);
