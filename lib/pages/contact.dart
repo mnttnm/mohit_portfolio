@@ -136,9 +136,9 @@ class _ContactCardState extends State<ContactCard>
           height: 50,
         ),
         IconButton(
-            onPressed: () {
-              _controller.forward();
-            },
+          onPressed: () {
+            _controller.forward();
+          },
           icon: const Icon(
             Icons.flip_camera_android_rounded,
             size: 36,
@@ -409,10 +409,12 @@ class SocialMediaLabel extends StatelessWidget {
     Key? key,
     required this.url,
     required this.displayLabel,
+    this.labelColor,
   }) : super(key: key);
 
   final String url;
   final String displayLabel;
+  final Color? labelColor;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -421,12 +423,12 @@ class SocialMediaLabel extends StatelessWidget {
       },
       child: Text(
         displayLabel,
-        style: const TextStyle(
+        style: TextStyle(
             letterSpacing: 1.3,
-          fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
-            color: secondaryGreyColor,
-            shadows: [
+            color: labelColor ?? secondaryGreyColor,
+            shadows: const [
               BoxShadow(
                 color: darkGreyColor,
                 offset: Offset(0.9, 0.7),
@@ -435,8 +437,7 @@ class SocialMediaLabel extends StatelessWidget {
                 color: secondaryWhiteColor,
                 offset: Offset(-0.5, 0),
               ),
-            ]
-        ),
+            ]),
       ),
     );
   }
@@ -463,6 +464,7 @@ class SocialMediaLinkIcon extends StatelessWidget {
         image: AssetImage(imagePath),
         width: 32,
         height: 32,
+        color: iconColor ?? primaryColorLight,
       ),
     );
   }
