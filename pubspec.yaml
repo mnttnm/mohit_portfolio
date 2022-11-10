@@ -35,6 +35,7 @@ dependencies:
   flutter_markdown: ^0.6.13
   flutter_riverpod: ^2.1.1
   go_router: ^5.1.3
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -56,7 +57,8 @@ flutter:
     - images/mohit-profile-pic.jpeg
     - assets/markdowns/
     - assets/images/project-placeholder.png
-    - assets/icons/github_png256.png
+    - assets/icons/
+    - assets/images/mohit-contact-qr.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
