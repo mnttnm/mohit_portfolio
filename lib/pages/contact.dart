@@ -135,11 +135,23 @@ class _ContactCardState extends State<ContactCard>
         const SizedBox(
           height: 50,
         ),
-        ElevatedButton(
+        IconButton(
             onPressed: () {
               _controller.forward();
             },
-            child: Text(cardFlipButtonTitle))
+          icon: const Icon(
+            Icons.flip_camera_android_rounded,
+            size: 36,
+            color: secondaryWhiteColor,
+            shadows: [
+              BoxShadow(
+                  color: secondaryWhiteColor,
+                  blurRadius: 20,
+                  spreadRadius: 10,
+                  blurStyle: BlurStyle.outer)
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -410,9 +422,20 @@ class SocialMediaLabel extends StatelessWidget {
       child: Text(
         displayLabel,
         style: const TextStyle(
+            letterSpacing: 1.3,
           fontWeight: FontWeight.w800,
-          fontSize: 16,
-          color: primaryColor,
+            fontSize: 18,
+            color: secondaryGreyColor,
+            shadows: [
+              BoxShadow(
+                color: darkGreyColor,
+                offset: Offset(0.9, 0.7),
+              ),
+              BoxShadow(
+                color: secondaryWhiteColor,
+                offset: Offset(-0.5, 0),
+              ),
+            ]
         ),
       ),
     );
