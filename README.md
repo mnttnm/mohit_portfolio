@@ -1,16 +1,5 @@
-# mohit_portfolio
+# Mohit Tater
 
-A new Flutter project.
+A portfolio website for Mohit Tater made with [Flutter](https://flutter.dev/)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Design is inspired by [Yanka Darelova](https://www.behance.net/darelova)'s [Portfolio Concept-v2](https://www.behance.net/gallery/142207047/Portfolio-Concept-V2)
