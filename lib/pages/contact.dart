@@ -34,7 +34,7 @@ class ContactPageMainContent extends StatelessWidget {
           color: primaryColorLight,
           border: Border.all(color: secondaryGreyColor),
         ),
-        child: ContactTabElement(),
+        child: const ContactTabElement(),
       ),
       const Expanded(
         child: Center(

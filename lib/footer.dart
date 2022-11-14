@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
-import 'package:mohit_portfolio/pages/contact.dart';
 import 'package:mohit_portfolio/widgets/icon_label_button.dart';
-import 'package:mohit_portfolio/widgets/label_text_button.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
