@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mohit_portfolio/colors/colors.dart';
 import 'package:mohit_portfolio/footer.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
-import 'package:mohit_portfolio/pages/contact.dart';
+import 'package:mohit_portfolio/pages/contact_me/contact.dart';
 import 'package:mohit_portfolio/pages/hello/hello.dart';
 import 'package:mohit_portfolio/pages/projects/projects.dart';
 
