@@ -18,4 +18,8 @@ class ContactFormChangeNotifier extends StateNotifier<FormInfo> {
       message: message ?? currentState.message,
     );
   }
+
+  void clearState() {
+    state = state.copyWith(name: '', email: '', message: '');
+  }
 }

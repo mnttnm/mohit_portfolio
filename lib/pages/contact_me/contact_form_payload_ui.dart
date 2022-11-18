@@ -83,7 +83,7 @@ class ContactFormPayload extends ConsumerWidget {
                   text: '        print', textType: TextType.keyword),
               getCustomTextSpan(text: '(', textType: TextType.symbol),
               getCustomTextSpan(
-                  text: '"Thanks for making an effort to get in touch!"',
+                  text: '"Excited to connect with you, Will reply back soon!"',
                   textType: TextType.string),
               getCustomTextSpan(text: ')', textType: TextType.symbol),
               getCustomTextSpan(text: ';\n', textType: TextType.symbol),

@@ -1,16 +1,25 @@
 import 'package:dio/dio.dart';
 
-void sendSlackMessage(Map<String, dynamic> message) async {
-  const slackWebHookURL = String.fromEnvironment('SLACK_WEBHOOK_URL');
+Future<bool> sendSlackMessage(Map<String, dynamic> message) async {
+  const apiURL = String.fromEnvironment('API_URL');
 
-  if (slackWebHookURL.isEmpty) {
+  if (apiURL.isEmpty) {
     throw Exception('Could not send the message');
   }
 
-  final response = await Dio().post(
-    slackWebHookURL,
-    data: message.toString(),
-  );
-
-  print(response.statusCode);
+  try {
+    //404
+    await Dio().post(apiURL, data: {"text": message.toString()});
+    return true;
+  } on DioError catch (e) {
+    if (e.response != null) {
+      print(e.response!.data);
+      print(e.response!.headers);
+      print(e.response!.statusCode);
+    } else {
+      print(e.requestOptions);
+      print(e.message);
+    }
+    return false;
+  }
 }
