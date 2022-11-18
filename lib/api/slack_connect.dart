@@ -10,7 +10,7 @@ Future<bool> sendSlackMessage(Map<String, dynamic> message) async {
   try {
     //404
     await Dio().post(apiURL, data: {"text": message.toString()});
-    return true;
+  return true;
   } on DioError catch (e) {
     if (e.response != null) {
       print(e.response!.data);

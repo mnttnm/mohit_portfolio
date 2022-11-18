@@ -91,7 +91,6 @@ class ContactFormState extends ConsumerState<ContactForm> {
                         }
                         return null;
                       },
-                      initialValue: _formInfo.name,
                       onSaved: (newValue) => _formInfo.name = newValue ?? '',
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
@@ -107,7 +106,6 @@ class ContactFormState extends ConsumerState<ContactForm> {
                       height: 16,
                     ),
                     TextFormField(
-                      initialValue: _formInfo.email,
                       onChanged: (value) {
                         ref
                             .read(contactFormProvider.notifier)
@@ -138,7 +136,6 @@ class ContactFormState extends ConsumerState<ContactForm> {
                       height: 16,
                     ),
                     TextFormField(
-                      initialValue: _formInfo.message,
                       onChanged: (value) {
                         ref
                             .read(contactFormProvider.notifier)
