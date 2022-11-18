@@ -29,7 +29,7 @@ jobs:
     #   run: flutter test
     
     - name: Build release project
-      run: flutter build web
+      run: flutter build web --release --dart-define=API_URL=${{ secrets.API_URL }}
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
