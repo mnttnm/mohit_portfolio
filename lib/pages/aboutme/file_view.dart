@@ -22,7 +22,7 @@ class FileView extends ConsumerWidget {
                 width: double.infinity,
                 height: 35,
                 decoration: BoxDecoration(
-                  color: primaryColorLight,
+                  color: primaryColor,
                   border: Border.all(color: secondaryGreyColor),
                 ),
                 child: Row(
@@ -57,7 +57,7 @@ class FileTabElement extends ConsumerWidget {
 
     return Container(
       padding: const EdgeInsets.all(4.0),
-      color: isSelected == true ? primaryColorDark : primaryColorLight,
+      color: isSelected == true ? primaryColorDark : primaryColor,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,8 +71,10 @@ class FileTabElement extends ConsumerWidget {
             },
             child: Text(
               resource.name,
-              style: const TextStyle(
-                fontSize: 12,
+              style: TextStyle(
+                color: isSelected == true
+                    ? secondaryWhiteColor
+                    : primaryColorLight,
               ),
             ),
           ),
@@ -85,7 +87,7 @@ class FileTabElement extends ConsumerWidget {
               },
               icon: const Icon(
                 Icons.close,
-                size: 12,
+                size: 14,
               ),
             )
         ],
