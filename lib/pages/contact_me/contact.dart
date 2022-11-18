@@ -178,25 +178,29 @@ class ContactSideBarElement extends StatelessWidget {
   final bool isActive;
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        onTabSelectionChange(tabType);
-      },
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: entryIcon,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Text(
-              'mohit_tater.${tabType.name}',
-              style: TextStyle(
-                  color: isActive ? accentOrangeColor : secondaryBlueColor),
+    return Container(
+      decoration:
+          isActive ? BoxDecoration(color: darkGreyColor.withAlpha(128)) : null,
+      child: TextButton(
+        onPressed: () {
+          onTabSelectionChange(tabType);
+        },
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: entryIcon,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                'mohit_tater.${tabType.name}',
+                style: TextStyle(
+                    color: isActive ? accentOrangeColor : secondaryGreyColor),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

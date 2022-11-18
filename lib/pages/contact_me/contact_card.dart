@@ -386,10 +386,10 @@ class SocialMediaLabel extends StatelessWidget {
             letterSpacing: 1.3,
             fontWeight: FontWeight.w800,
             fontSize: 18,
-            color: labelColor ?? secondaryGreyColor,
+            color: labelColor ?? primaryColor,
             shadows: const [
               BoxShadow(
-                color: darkGreyColor,
+                color: primaryColorDark,
                 offset: Offset(0.9, 0.7),
               ),
               BoxShadow(
@@ -423,7 +423,7 @@ class SocialMediaLinkIcon extends StatelessWidget {
         image: AssetImage(imagePath),
         width: 32,
         height: 32,
-        color: iconColor ?? primaryColorLight,
+        color: iconColor ?? primaryColor,
       ),
     );
   }
@@ -449,14 +449,14 @@ class CardContentProfessionalLinks extends StatelessWidget {
                 Text(
                   'Mohit Tater'.toUpperCase(),
                   style: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: primaryColorLight,
+                        color: primaryColor,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 Text(
                   'Software Developer',
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                        color: primaryColorLight,
+                        color: primaryColor,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -523,12 +523,12 @@ class ProfessionalLink extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: darkGreyColor,
+                color: primaryColor,
                 width: 2,
               )),
           child: Icon(
             linkIcon,
-            color: darkGreyColor,
+            color: primaryColor,
           ),
         ),
         const SizedBox(
