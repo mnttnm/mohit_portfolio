@@ -41,6 +41,28 @@ class Footer extends StatelessWidget {
           const VerticalDivider(
             color: secondaryGreyColor,
           ),
+          IconLabelButton(
+            buttonLabel: 'Find me on',
+            linkUrl: 'https://www.linkedin.com/in/tatermohit/',
+            iconWidget: Image.asset(
+              'assets/icons/linkedin.png',
+              color: secondaryWhiteColor,
+            ),
+            buttonLabelColor: secondaryGreyColor,
+          ),
+          const VerticalDivider(
+            color: secondaryGreyColor,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Image.asset(
+              'assets/icons/twitter.png',
+              color: secondaryWhiteColor,
+            ),
+          ),
+          const VerticalDivider(
+            color: secondaryGreyColor,
+          ),
           const Spacer(),
           const VerticalDivider(
             color: secondaryGreyColor,

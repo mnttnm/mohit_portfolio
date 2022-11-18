@@ -39,7 +39,7 @@ class ProjectsMainContent extends ConsumerWidget {
           height: 35,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: primaryColorLight,
+            color: primaryColor,
             border: Border.all(color: secondaryGreyColor),
           ),
           child: const ProjectsTabElement(),

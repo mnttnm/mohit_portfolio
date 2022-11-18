@@ -15,7 +15,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       centerTitle: false,
       titleSpacing: 0.0,
-      backgroundColor: primaryColorLight,
+      backgroundColor: primaryColor,
       leading: Container(
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.only(left: 20),
@@ -39,22 +39,6 @@ class Header extends StatelessWidget with PreferredSizeWidget {
           TabElement(title: '_about_me'),
           TabElement(title: '_projects'),
           TabElement(title: '_contact_me'),
-          // NavElement(
-          //   title: '_hello',
-          //   urlPath: HelloPage.helloPageRoute,
-          // ),
-          // NavElement(
-          //   title: '_about_me',
-          //   urlPath: AboutMePage.aboutMePageRoute,
-          // ),
-          // NavElement(
-          //   title: '_projects',
-          //   urlPath: ProjectPage.projectPageRoute,
-          // ),
-          // NavElement(
-          //   title: '_contact_me',
-          //   urlPath: ContactPage.contactPageRoute,
-          // ),
         ],
       ),
     );
@@ -81,7 +65,7 @@ class TabElement extends StatelessWidget {
         decoration: const BoxDecoration(
             border: Border(
           left: BorderSide(
-            color: secondaryGreyColor,
+            color: primaryColorLight,
           ),
         )),
         child: Tab(
