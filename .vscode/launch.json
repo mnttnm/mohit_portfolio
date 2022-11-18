@@ -8,21 +8,21 @@
       "name": "mohit_portfolio",
       "request": "launch",
       "type": "dart",
-      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
+      "toolArgs": ["--dart-define"]
     },
     {
       "name": "mohit_portfolio (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
-      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
+      "toolArgs": ["--dart-define"]
     },
     {
       "name": "mohit_portfolio (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
+      "toolArgs": ["--dart-define"]
     }
   ]
 }
