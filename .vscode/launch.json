@@ -8,21 +8,21 @@
       "name": "mohit_portfolio",
       "request": "launch",
       "type": "dart",
-      "toolArgs": ["--dart-define", "SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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"]
+      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
     },
     {
       "name": "mohit_portfolio (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
-      "toolArgs": ["--dart-define", "SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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"]
+      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
     },
     {
       "name": "mohit_portfolio (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "toolArgs": ["--dart-define", "SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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"]
+      "toolArgs": ["--dart-define", "API_URL=https://yjctug39v6.execute-api.ap-south-1.amazonaws.com/default/sendSlackMessage"]
     }
   ]
 }
