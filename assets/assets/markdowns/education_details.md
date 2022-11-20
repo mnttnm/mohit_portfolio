@@ -1,4 +1,4 @@
-# Education Details - Mohit Tater
+# Education Details
 
 ---
 
