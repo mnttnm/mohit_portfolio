@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:mohit_portfolio/api/slack_connect.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact_form_notifier.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact_form_payload_ui.dart';
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:mohit_portfolio/constants/icon_assets.dart';
+import 'package:mohit_portfolio/constants/social_links.dart';
 import 'package:mohit_portfolio/widgets/icon_label_button.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -43,9 +46,9 @@ class Footer extends StatelessWidget {
           ),
           IconLabelButton(
             buttonLabel: 'Find me on',
-            linkUrl: 'https://www.linkedin.com/in/tatermohit/',
+            linkUrl: linkedinProfileUrl,
             iconWidget: Image.asset(
-              'assets/icons/linkedin.png',
+              linkedinIconPath,
               color: secondaryWhiteColor,
             ),
             buttonLabelColor: secondaryGreyColor,
@@ -54,10 +57,14 @@ class Footer extends StatelessWidget {
             color: secondaryGreyColor,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await launchUrlString(twitterProfileUrl);
+            },
             icon: Image.asset(
-              'assets/icons/twitter.png',
+              twitterIconPath,
               color: secondaryWhiteColor,
+              width: 18,
+              height: 18,
             ),
           ),
           const VerticalDivider(
@@ -71,7 +78,7 @@ class Footer extends StatelessWidget {
             buttonLabel: 'Source code @',
             linkUrl: 'https://github.com/mnttnm/mohit_portfolio',
             iconWidget: Image.asset(
-              'assets/icons/github.png',
+              githubIconPath,
               color: secondaryWhiteColor,
             ),
             buttonLabelColor: secondaryGreyColor,

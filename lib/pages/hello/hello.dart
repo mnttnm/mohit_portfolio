@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 
 class HelloPage extends StatelessWidget {
   static const helloPageRoute = 'hello';
@@ -15,23 +15,72 @@ class HelloPage extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 200),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Hi all. I am'),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.waving_hand_outlined,
+                          color: accentOrangeColor,
+                          size: 32,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Hello there, I am;',
+                          style:
+                              Theme.of(context).textTheme.labelLarge!.copyWith(
+                                    color: primaryColorLight,
+                                  ),
+                        ),
+                      ],
+                    ),
                     Text(
                       'Mohit Tater',
                       style: Theme.of(context).textTheme.headline1,
                     ),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text(
-                      '> Flutter Developer',
+                      '> Software Developer',
                       style: Theme.of(context)
                           .textTheme
                           .headline2!
                           .copyWith(color: secondaryBlueColor),
                     ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text(
+                      '/* I am currently looking for new Opportunity!',
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            color: secondaryGreyColor,
+                          ),
+                    ),
+                    Row(
+                      children: [
+                        const Text(' * Let\'s'),
+                        TextButton(
+                            onPressed: () {
+                              DefaultTabController.of(context)!.animateTo(3);
+                            },
+                            child: const Text(
+                              'connect,',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            )),
+                        const Text('if you are looking'),
+                      ],
+                    ),
+                    const Text(' * for Flutter developer'),
+                    const Text(' */'),
                   ],
                 ),
               ),

@@ -10,7 +10,12 @@ class MarkdownFromFileWidget extends StatelessWidget {
     return FutureBuilder(
         future: DefaultAssetBundle.of(context).loadString(filePath),
         builder: (context, snapshot) {
-          return Markdown(data: snapshot.data ?? '# No Data');
-        });
+        return Markdown(
+          data: snapshot.data ?? '# No Data',
+          padding: const EdgeInsets.all(20),
+          styleSheetTheme: MarkdownStyleSheetBaseTheme.material,
+        );
+      },
+    );
   }
 }

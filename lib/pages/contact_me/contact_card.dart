@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:mohit_portfolio/constants/icon_assets.dart';
+import 'package:mohit_portfolio/constants/social_links.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactCard extends StatefulWidget {
@@ -203,20 +205,20 @@ class ContactCardSocialLinksLandscape extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
                     SocialMediaLinkIcon(
-                      imagePath: 'assets/icons/linkedin.png',
-                      url: 'https://linkedin.com/in/tatermohit/',
+                      imagePath: linkedinIconPath,
+                      url: linkedinProfileUrl,
                     ),
                     SocialMediaLinkIcon(
-                      imagePath: 'assets/icons/github.png',
-                      url: 'https://github.com/mnttnm',
+                      imagePath: githubIconPath,
+                      url: githubProfileUrl,
                     ),
                     SocialMediaLinkIcon(
-                      imagePath: 'assets/icons/twitter.png',
-                      url: 'https://twitter.com/tatermohit/',
+                      imagePath: twitterIconPath,
+                      url: twitterProfileUrl,
                     ),
                     SocialMediaLinkIcon(
-                      imagePath: 'assets/icons/instagram.png',
-                      url: 'https://instagram.com/_mohit_tater_/',
+                      imagePath: instagramIconPath,
+                      url: instagramProfileUrl,
                     ),
                   ]),
             ),
@@ -313,20 +315,20 @@ class ContactCardSocialLinks extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: const [
                         SocialMediaLinkIcon(
-                          imagePath: 'assets/icons/linkedin.png',
-                          url: 'https://linkedin.com/in/tatermohit/',
+                          imagePath: linkedinIconPath,
+                          url: linkedinProfileUrl,
                         ),
                         SocialMediaLinkIcon(
-                          imagePath: 'assets/icons/github.png',
-                          url: 'https://github.com/mnttnm',
+                          imagePath: githubIconPath,
+                          url: githubProfileUrl,
                         ),
                         SocialMediaLinkIcon(
-                          imagePath: 'assets/icons/twitter.png',
-                          url: 'https://twitter.com/tatermohit/',
+                          imagePath: twitterIconPath,
+                          url: twitterProfileUrl,
                         ),
                         SocialMediaLinkIcon(
-                          imagePath: 'assets/icons/instagram.png',
-                          url: 'https://instagram.com/_mohit_tater_/',
+                          imagePath: instagramIconPath,
+                          url: instagramProfileUrl,
                         ),
                       ]),
                 ),
@@ -343,16 +345,16 @@ class ContactCardSocialLinks extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 SocialMediaLabel(
-                  url: 'https://www.linkedin.com/in/tatermohit/',
+                  url: linkedinProfileUrl,
                   displayLabel: 'tatermohit',
                 ),
                 SocialMediaLabel(
-                    url: 'https://github.com/mnttnm', displayLabel: 'mnttnm'),
+                    url: githubProfileUrl, displayLabel: 'mnttnm'),
                 SocialMediaLabel(
-                    url: 'https://twitter.com/tatermohit/',
+                    url: twitterProfileUrl,
                     displayLabel: '@tatermohit'),
                 SocialMediaLabel(
-                    url: 'https://www.instagram.com/_mohit_tater_/',
+                    url: instagramProfileUrl,
                     displayLabel: '_mohit_tater_'),
               ],
             ),
@@ -401,7 +403,6 @@ class SocialMediaLabel extends StatelessWidget {
     );
   }
 }
-
 class SocialMediaLinkIcon extends StatelessWidget {
   const SocialMediaLinkIcon({
     Key? key,

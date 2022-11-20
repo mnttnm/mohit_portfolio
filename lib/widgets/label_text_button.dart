@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LabelTextButton extends StatelessWidget {

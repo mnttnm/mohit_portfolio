@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/widgets/markdown_renderer.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me_state_notifier.dart';
 import 'package:mohit_portfolio/resource.dart';
@@ -34,8 +34,38 @@ class FileView extends ConsumerWidget {
                 ),
               ),
               Expanded(
-                child: MarkdownFromFileWidget(
-                  filePath: 'assets/markdowns/${currentState.activeFile!.name}',
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: FutureBuilder(
+                        future: DefaultAssetBundle.of(context).loadString(
+                            'assets/markdowns/${currentState.activeFile!.name}'),
+                        builder: (context, snapshot) {
+                          return SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                snapshot.data ?? 'No information to show!',
+                                style: const TextStyle(
+                                  color: secondaryGreyColor,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    // Expanded(
+                    //   flex: 1,
+                    //   child: MarkdownFromFileWidget(
+                    //     filePath:
+                    //         'assets/markdowns/${currentState.activeFile!.name}',
+                    //   ),
+                    // ),
+                  ],
                 ),
               )
             ],

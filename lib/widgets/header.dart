@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
-import 'package:mohit_portfolio/footer.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:mohit_portfolio/widgets/footer.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact.dart';
 import 'package:mohit_portfolio/pages/hello/hello.dart';
@@ -117,7 +117,7 @@ class TabbedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 4,
-      initialIndex: 3,
+      initialIndex: 0,
       child: Scaffold(
         appBar: Header(),
         body: TabBarView(children: [

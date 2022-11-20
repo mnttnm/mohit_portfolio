@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/pages/projects/projects_state_notifier.dart';
 
 class ProjectCard extends StatefulWidget {
@@ -89,9 +89,7 @@ class _ProjectCardState extends State<ProjectCard> {
                             padding: const EdgeInsets.all(4),
                             onPressed: () {},
                             icon: Image.asset(
-                              'assets/icons/github_png256.png',
-                              width: 28,
-                              height: 28,
+                              'assets/icons/github.png',
                             ))
                       ],
                     )

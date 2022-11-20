@@ -1,0 +1,9 @@
+- Change default tab - Done
+- Change the file/folder icons - Done
+- Add content to the about me section
+- Hello page content update
+- Project page content update
+- Header height Change
+- Add resume download option
+- Border animation on Hello page
+- Hire me

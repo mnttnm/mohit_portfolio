@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact_card.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact_form.dart';
 import 'package:mohit_portfolio/widgets/page_content_layout.dart';
@@ -124,7 +123,7 @@ class ContactTabElement extends ConsumerWidget {
               },
               icon: Icon(
                 isActive ? Icons.circle : Icons.circle_outlined,
-                size: 14,
+                size: 12,
               ),
             )
           ],
