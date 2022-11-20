@@ -12,8 +12,6 @@ final ResourceTree aboutMeResourceStructure = ResourceTree(
           name: "education",
           children: [
             Resource(type: ResourceType.file, name: "education_details.md"),
-            Resource(type: ResourceType.file, name: "graduation.md"),
-            Resource(type: ResourceType.file, name: "senior-secondary.md"),
           ],
         ),
         Resource(
