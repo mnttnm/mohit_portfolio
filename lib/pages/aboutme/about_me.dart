@@ -83,14 +83,29 @@ class _ExpandableComponentState extends State<ExpandableComponent> {
                   isExpanded = !isExpanded;
                 });
               },
-              child: Text(
-                isExpanded == false
-                    ? '> ${widget.resource.name}'
-                    : 'v ${widget.resource.name}',
-                style: const TextStyle(
-                  color: secondaryWhiteColor,
-                ),
-                textAlign: TextAlign.start,
+              child: Row(
+                children: [
+                  Text(
+                    isExpanded == false ? '>' : 'v',
+                  ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  const Icon(
+                    Icons.folder,
+                    size: 16,
+                  ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  Text(
+                    widget.resource.name,
+                    style: const TextStyle(
+                      color: secondaryWhiteColor,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ],
               ),
             ),
           ),
@@ -139,8 +154,22 @@ class ExpandedFile extends ConsumerWidget {
           foregroundColor:
               isActive == true ? accentOrangeColor : secondaryBlueColor,
         ),
-        child: Text(
-          '|_ ${file.name}',
+        child: Row(
+          children: [
+            const Text(
+              '|_',
+            ),
+            Image.asset(
+              'assets/icons/markdown.webp',
+              color: secondaryWhiteColor,
+              width: 16,
+              height: 16,
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            Text(file.name),
+          ],
         ),
         onPressed: () {
           ref.read(aboutMeProvider.notifier).onSidePanelFileSelection(file);
