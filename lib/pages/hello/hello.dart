@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 
 class HelloPage extends StatelessWidget {
   static const helloPageRoute = 'hello';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mohit_portfolio/colors/colors.dart';
+import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/pages/projects/project_card.dart';
 import 'package:mohit_portfolio/pages/projects/projects_state_notifier.dart';
 import 'package:mohit_portfolio/widgets/page_content_layout.dart';
