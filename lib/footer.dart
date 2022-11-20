@@ -58,6 +58,8 @@ class Footer extends StatelessWidget {
             icon: Image.asset(
               'assets/icons/twitter.png',
               color: secondaryWhiteColor,
+              width: 18,
+              height: 18,
             ),
           ),
           const VerticalDivider(
