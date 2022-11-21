@@ -5,7 +5,7 @@ const List<Project> listOfProjects = [
     id: 'mohit-portfolio',
     title: 'Mohit Tater - Portfolio Website',
     projectDescription:
-        'A website/CV that I developed myself using Flutter, The design is inspired by Yanka Darelova (Link in Footer)',
+        'A personal portfolio portal for myself. I built it using Flutter and enjoyed working on various new things while working on it',
     techStackUsed: [
       TechStack.dart,
       TechStack.flutter,
@@ -14,8 +14,9 @@ const List<Project> listOfProjects = [
     liveProjectLink: 'https://mnttnm.github.io/mohit_portfolio/#/',
     highlights: [
       'VSCode like theme',
-      'Widget Animation',
-      'Riverpod basic usecase'
+      'Flip widget Animation',
+      'Riverpod state management',
+      'CI/CD support through github actions/pages'
     ],
     thumbnail: 'mohit-portfolio/1.png',
   ),

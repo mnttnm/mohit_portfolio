@@ -38,10 +38,7 @@ class ProjectsMainContent extends ConsumerWidget {
         Container(
           height: 35,
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: primaryColor,
-            border: Border.all(color: secondaryGreyColor),
-          ),
+          color: primaryColorDark,
           child: const ProjectsTabElement(),
         ),
         if (providerState.activeProjects!.isEmpty) ...[
@@ -154,7 +151,7 @@ class ProjectsTabElement extends ConsumerWidget {
       alignment: Alignment.topLeft,
       child: Container(
         padding: const EdgeInsets.all(4.0),
-        color: primaryColorDark,
+        color: primaryColorDarker,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,

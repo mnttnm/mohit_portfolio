@@ -216,7 +216,7 @@ class ContactFormState extends ConsumerState<ContactForm> {
           ),
         ],
         const VerticalDivider(
-          thickness: 2,
+          thickness: 1,
           color: primaryColorLight,
         ),
         Expanded(

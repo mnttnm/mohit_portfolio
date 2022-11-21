@@ -8,7 +8,7 @@ class HelloPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: primaryColorDark,
+        color: primaryColorDarker,
         width: double.infinity,
         height: double.infinity,
         child: Row(

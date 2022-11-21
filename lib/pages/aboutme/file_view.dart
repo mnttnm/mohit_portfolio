@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me_state_notifier.dart';
 import 'package:mohit_portfolio/resource.dart';
+import 'package:mohit_portfolio/widgets/markdown_renderer.dart';
 
 class FileView extends ConsumerWidget {
   const FileView({super.key});
@@ -23,10 +24,7 @@ class FileView extends ConsumerWidget {
               Container(
                 width: double.infinity,
                 height: 35,
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  border: Border.all(color: secondaryGreyColor),
-                ),
+                color: primaryColorDark,
                 child: Row(
                   children: currentState.openFiles!.map((e) {
                     return FileTabElement(
@@ -40,6 +38,13 @@ class FileView extends ConsumerWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Expanded(
+                      flex: 1,
+                      child: MarkdownFromFileWidget(
+                        filePath:
+                            'assets/markdowns/${currentState.activeFile!.name}',
+                      ),
+                    ),
                     Expanded(
                       flex: 1,
                       child: FutureBuilder(
@@ -60,13 +65,6 @@ class FileView extends ConsumerWidget {
                         },
                       ),
                     ),
-                    // Expanded(
-                    //   flex: 1,
-                    //   child: MarkdownFromFileWidget(
-                    //     filePath:
-                    //         'assets/markdowns/${currentState.activeFile!.name}',
-                    //   ),
-                    // ),
                   ],
                 ),
               )
@@ -85,11 +83,12 @@ class FileTabElement extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isSelected = ref.watch(aboutMeProvider).activeFile == resource;
+    final isSelected =
+        ref.watch(aboutMeProvider).activeFile?.name == resource.name;
 
     return Container(
       padding: const EdgeInsets.all(4.0),
-      color: isSelected == true ? primaryColorDark : primaryColor,
+      color: isSelected == true ? primaryColorDarker : primaryColor,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,17 +100,31 @@ class FileTabElement extends ConsumerWidget {
                   .read(aboutMeProvider.notifier)
                   .onTabPanelFileSelection(resource);
             },
-            child: Text(
-              resource.name,
-              style: TextStyle(
-                color: isSelected == true
-                    ? secondaryWhiteColor
-                    : primaryColorLight,
-              ),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/icons/markdown.webp',
+                  color: secondaryWhiteColor,
+                  width: 16,
+                  height: 16,
+                ),
+                const SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  resource.name,
+                  style: TextStyle(
+                    color: isSelected == true
+                        ? secondaryWhiteColor
+                        : primaryColorLight,
+                  ),
+                ),
+              ],
             ),
           ),
-          if (isSelected == true)
-            IconButton(
+          if (isSelected == true) ...[
+            resource.name != introFileResource.name
+                ? IconButton(
               mouseCursor: SystemMouseCursors.click,
               splashRadius: 12,
               onPressed: () {
@@ -121,7 +134,18 @@ class FileTabElement extends ConsumerWidget {
                 Icons.close,
                 size: 14,
               ),
-            )
+                  )
+                : IconButton(
+                    mouseCursor: SystemMouseCursors.basic,
+                    onPressed: () {},
+                    splashRadius: 1,
+                    icon: const Icon(
+                      Icons.circle,
+                      size: 12,
+                      color: primaryColorLight,
+                    ),
+                  ),
+          ]
         ],
       ),
     );
