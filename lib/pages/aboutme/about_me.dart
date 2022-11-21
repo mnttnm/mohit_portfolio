@@ -48,7 +48,7 @@ class CategoryStructure extends StatelessWidget {
   }
 }
 
-class ExpandableComponent extends StatefulWidget {
+class ExpandableComponent extends ConsumerStatefulWidget {
   const ExpandableComponent({
     Key? key,
     required this.resource,
@@ -56,11 +56,21 @@ class ExpandableComponent extends StatefulWidget {
 
   final Resource resource;
   @override
-  State<ExpandableComponent> createState() => _ExpandableComponentState();
+  ExpandableComponentState createState() => ExpandableComponentState();
 }
 
-class _ExpandableComponentState extends State<ExpandableComponent> {
+class ExpandableComponentState extends ConsumerState<ExpandableComponent> {
   bool isExpanded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (ref.read(aboutMeProvider).openFiles != null &&
+        ref.read(aboutMeProvider).openFiles!.length == 1 &&
+        widget.resource.name == 'personal') {
+      isExpanded = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,6 +155,7 @@ class ExpandedFile extends ConsumerWidget {
 
     final isActive = aboutMePageState.activeFile != null &&
         aboutMePageState.activeFile!.name == file.name;
+
     return Padding(
       padding: const EdgeInsets.only(left: 20.0),
       child: TextButton(

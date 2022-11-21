@@ -15,12 +15,14 @@ class AboutMePageState {
 }
 
 class AboutMeResourceChangeNotifier extends StateNotifier<AboutMePageState> {
-  AboutMeResourceChangeNotifier()
-      : super(const AboutMePageState(
-          openFiles: [],
-          activeFile: null,
-        ));
+  AboutMeResourceChangeNotifier({this.initialState})
+      : super(initialState ??
+            const AboutMePageState(
+              openFiles: [],
+              activeFile: null,
+            ));
 
+  final AboutMePageState? initialState;
   void onSidePanelFileSelection(Resource currentResource) {
     final currentFileIndex = state.openFiles != null
         ? state.openFiles!
@@ -62,8 +64,12 @@ class AboutMeResourceChangeNotifier extends StateNotifier<AboutMePageState> {
   }
 }
 
+final introFileResource = Resource(type: ResourceType.file, name: 'intro.md');
+
 final aboutMeProvider =
     StateNotifierProvider<AboutMeResourceChangeNotifier, AboutMePageState>(
         (ref) {
-  return AboutMeResourceChangeNotifier();
+  return AboutMeResourceChangeNotifier(
+      initialState: AboutMePageState(
+          activeFile: introFileResource, openFiles: [introFileResource]));
 });
