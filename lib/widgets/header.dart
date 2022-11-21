@@ -20,10 +20,30 @@ class Header extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: primaryColor,
       leading: Container(
         padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.only(left: 20),
-        child: Text(
-          'mohit-tater',
-          style: Theme.of(context).textTheme.bodyText1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              children: const [
+                TitleBarDefaultButton(
+                  buttonColor: closeButtonColor,
+                ),
+                TitleBarDefaultButton(
+                  buttonColor: minimiseButtonColor,
+                ),
+                TitleBarDefaultButton(
+                  buttonColor: fullscreenButtonColor,
+                )
+              ],
+            ),
+            const SizedBox(
+              width: 40,
+            ),
+            Text(
+              'mohit-tater',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          ],
         ),
       ),
       leadingWidth: 400,
@@ -72,6 +92,25 @@ class Header extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(42);
+}
+
+class TitleBarDefaultButton extends StatelessWidget {
+  const TitleBarDefaultButton({
+    super.key,
+    required this.buttonColor,
+  });
+
+  final Color buttonColor;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: CircleAvatar(
+        backgroundColor: buttonColor,
+        radius: 8,
+      ),
+    );
+  }
 }
 
 class TabElement extends StatelessWidget {

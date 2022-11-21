@@ -25,3 +25,8 @@ const projectTitleColor = Color.fromARGB(255, 85, 101, 232);
 
 const cardGradientColor = Color.fromARGB(255, 176, 176, 176);
 const cardGradientColorLight = Color.fromARGB(255, 244, 244, 244);
+
+//title bar colors
+const closeButtonColor = Color.fromARGB(255, 255, 95, 87);
+const minimiseButtonColor = Color.fromARGB(255, 254, 188, 45);
+const fullscreenButtonColor = Color.fromARGB(255, 32, 195, 56);

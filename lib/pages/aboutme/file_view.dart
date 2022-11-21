@@ -39,12 +39,14 @@ class FileView extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      flex: 1,
+                      flex: 5,
                       child: MarkdownFromFileWidget(
                         filePath:
                             'assets/markdowns/${currentState.activeFile!.name}',
                       ),
                     ),
+                    VerticalDivider(
+                        thickness: 3, color: projectCardColor.withOpacity(0.2)),
                     Expanded(
                       flex: 1,
                       child: FutureBuilder(
@@ -58,6 +60,7 @@ class FileView extends ConsumerWidget {
                                 snapshot.data ?? 'No information to show!',
                                 style: const TextStyle(
                                   color: secondaryGreyColor,
+                                  fontSize: 4,
                                 ),
                               ),
                             ),
