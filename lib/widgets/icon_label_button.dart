@@ -10,6 +10,7 @@ class IconLabelButton extends StatelessWidget {
     required this.iconWidget,
     this.iconColor,
     this.buttonLabelColor,
+    this.toolTip,
   });
 
   final String buttonLabel;
@@ -17,6 +18,7 @@ class IconLabelButton extends StatelessWidget {
   final Widget iconWidget;
   final Color? iconColor;
   final Color? buttonLabelColor;
+  final String? toolTip;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,12 +29,15 @@ class IconLabelButton extends StatelessWidget {
             color: buttonLabelColor ?? secondaryGreyColor,
           ),
         ),
-        IconButton(
-          color: iconColor ?? secondaryWhiteColor,
-          onPressed: () async {
-            await launchUrlString(linkUrl);
-          },
-          icon: iconWidget,
+        Tooltip(
+          message: toolTip ?? '',
+          child: IconButton(
+            color: iconColor ?? secondaryWhiteColor,
+            onPressed: () async {
+              await launchUrlString(linkUrl);
+            },
+            icon: iconWidget,
+          ),
         )
       ],
     );

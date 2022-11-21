@@ -24,7 +24,7 @@ class HelloPage extends StatelessWidget {
                     Row(
                       children: [
                         const Icon(
-                          Icons.waving_hand_outlined,
+                          Icons.waving_hand,
                           color: accentOrangeColor,
                           size: 32,
                         ),
