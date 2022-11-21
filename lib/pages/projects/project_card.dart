@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
-import 'package:mohit_portfolio/pages/projects/projects_state_notifier.dart';
+import 'package:mohit_portfolio/constants/icon_assets.dart';
+import 'package:mohit_portfolio/pages/projects/project.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectCard extends StatefulWidget {
   const ProjectCard({super.key, required this.project});
@@ -40,7 +42,7 @@ class _ProjectCardState extends State<ProjectCard> {
               ? [
                   BoxShadow(
                     color: accentOrangeColor.withAlpha(200),
-                    blurRadius: 20,
+                    blurRadius: 10,
                     blurStyle: BlurStyle.outer,
                   )
                 ]
@@ -58,42 +60,152 @@ class _ProjectCardState extends State<ProjectCard> {
                   color: projectCardColor,
                   image: DecorationImage(
                     image: AssetImage(
-                      widget.project.thumbnail ??
-                          'assets/images/project-placeholder.png',
+                        widget.project.thumbnail != null
+                            ? 'assets/images/projects/${widget.project.thumbnail}'
+                            : 'assets/images/project-placeholder.jpeg',
                     ),
-                    fit: BoxFit.cover,
+                      fit: BoxFit.contain
                   ),
                 ),
               ),
             ),
             Expanded(
               flex: 4,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.project.projectDescription,
-                        style: const TextStyle(
-                          color: secondaryGreyColor,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: isHovered == true
+                          ? accentOrangeColor
+                          : secondaryWhiteColor,
+                      width: 3,
+                    ),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          primary: false,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.project.projectDescription,
+                                style: const TextStyle(
+                                  color: secondaryGreyColor,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              if (widget.project.highlights != null) ...[
+                                const Text(
+                                  'Highlights',
+                                  style: TextStyle(
+                                    color: accentOrangeColor,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                ...widget.project.highlights!.map(
+                                  (e) => Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text('- $e'),
+                                  ),
+                                )
+                              ],
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Wrap(
+                                children: [
+                                  ...widget.project.techStackUsed!.map(
+                                    (e) => Text(
+                                      '#${e.name} ',
+                                      style: const TextStyle(
+                                        color: accentOrangeColor,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(onPressed: () {}, child: const Text('Demo')),
-                        IconButton(
-                            padding: const EdgeInsets.all(4),
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/icons/github.png',
-                            ))
-                      ],
-                    )
-                  ],
+                      if (widget.project.githubLink != null ||
+                          widget.project.liveProjectLink != null)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Spacer(),
+                            if (widget.project.liveProjectLink != null) ...[
+                              DecoratedBox(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: secondaryWhiteColor,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: TextButton(
+                                  onPressed: () async {
+                                    await launchUrlString(
+                                        widget.project.liveProjectLink!);
+                                  },
+                                  child: const Text(
+                                    'Demo',
+                                    style: TextStyle(
+                                      color: secondaryWhiteColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              )
+                            ],
+                            if (widget.project.githubLink != null)
+                              DecoratedBox(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: secondaryWhiteColor,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: TextButton(
+                                  onPressed: () async {
+                                    await launchUrlString(
+                                        widget.project.githubLink!);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      const Text(
+                                        'source-code',
+                                        style: TextStyle(
+                                          color: secondaryWhiteColor,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 2,
+                                      ),
+                                      Image.asset(
+                                        githubIconPath,
+                                        width: 18,
+                                        height: 18,
+                                        color: secondaryWhiteColor,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                          ],
+                        )
+                    ],
+                  ),
                 ),
               ),
             )

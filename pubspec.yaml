@@ -58,6 +58,11 @@ flutter:
     - images/mohit-profile-pic.jpeg
     - assets/markdowns/
     - assets/images/project-placeholder.png
+    - assets/images/project-placeholder.jpeg
+    - assets/images/projects/brain-basket/
+    - assets/images/projects/workitout/
+    - assets/images/projects/cc-bot/
+    - assets/images/projects/mohit-portfolio/
     - assets/icons/
     - assets/images/mohit-contact-qr.png
   #   - images/a_dot_ham.jpeg

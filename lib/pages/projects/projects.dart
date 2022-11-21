@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:mohit_portfolio/pages/projects/project.dart';
 import 'package:mohit_portfolio/pages/projects/project_card.dart';
 import 'package:mohit_portfolio/pages/projects/projects_state_notifier.dart';
 import 'package:mohit_portfolio/widgets/page_content_layout.dart';
@@ -33,7 +34,6 @@ class ProjectsMainContent extends ConsumerWidget {
     final providerState = ref.watch(projectProvider);
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           height: 35,
@@ -53,32 +53,73 @@ class ProjectsMainContent extends ConsumerWidget {
           )
         ] else ...[
           Expanded(
-            child: GridView.count(
-              padding: const EdgeInsets.all(20),
-              scrollDirection: Axis.vertical,
-              crossAxisCount: 3,
-              crossAxisSpacing: 20.0,
-              mainAxisSpacing: 20.0,
-              children: providerState.activeProjects!
-                  .map((e) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              e.title.toUpperCase(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelMedium!
-                                  .copyWith(color: projectTitleColor),
-                            ),
-                          ),
-                          ProjectCard(project: e),
-                        ],
-                      ))
-                  .toList(),
+            // Wrap with row/column is another way to implement Grid
+            child: SingleChildScrollView(
+              child: SizedBox(
+                // Required as the scrollbar was not being shown up at the extreme right
+                width: double.infinity,
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  direction: Axis.horizontal,
+                  runSpacing: 30,
+                  spacing: 40,
+                  children: providerState.activeProjects!
+                      .map((e) => Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 60,
+                                width: 400,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Align(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Text(
+                                      e.title.toUpperCase(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelMedium!
+                                          .copyWith(color: accentPurpleColor),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              ProjectCard(project: e),
+                            ],
+                          ))
+                      .toList(),
+                ),
+              ),
             ),
           ),
+          // GridView.count(
+          //   padding: const EdgeInsets.all(20),
+          //   scrollDirection: Axis.vertical,
+          //   crossAxisCount: 3,
+          //   crossAxisSpacing: 20.0,
+          //   mainAxisSpacing: 20.0,
+          //   children: providerState.activeProjects!
+          //       .map((e) => Column(
+          //             crossAxisAlignment: CrossAxisAlignment.start,
+          //             children: [
+          //               SizedBox(
+          //                 height: 60,
+          //                 child: Padding(
+          //                   padding: const EdgeInsets.all(8.0),
+          //                   child: Text(
+          //                     e.title.toUpperCase(),
+          //                     style: Theme.of(context)
+          //                         .textTheme
+          //                         .labelMedium!
+          //                         .copyWith(color: projectTitleColor),
+          //                   ),
+          //                 ),
+          //               ),
+          //               Expanded(child: ProjectCard(project: e)),
+          //             ],
+          //           ))
+          //       .toList(),
+          // ),
         ]
       ],
     );
