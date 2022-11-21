@@ -52,10 +52,7 @@ class ContactPageMainContent extends StatelessWidget {
         Container(
           height: 35,
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: primaryColor,
-            border: Border.all(color: secondaryGreyColor),
-          ),
+          color: primaryColorDark,
           child: Row(
             children: [
               ContactTabElement(
@@ -98,7 +95,7 @@ class ContactTabElement extends ConsumerWidget {
       alignment: Alignment.topLeft,
       child: Container(
         padding: const EdgeInsets.all(2.0),
-        color: isActive ? primaryColorDark : primaryColor,
+        color: isActive ? primaryColorDarker : primaryColor,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -142,7 +142,7 @@ class ContactCardSocialLinksLandscape extends StatelessWidget {
                       bottomRight: Radius.circular(30),
                       bottomLeft: Radius.circular(30),
                     ),
-                    color: primaryColorDark,
+                    color: primaryColorDarker,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -158,7 +158,7 @@ class ContactCardSocialLinksLandscape extends StatelessWidget {
                               Shadow(
                                 blurRadius: 2,
                                 offset: Offset(0, 3),
-                                color: primaryColorDark,
+                                color: primaryColorDarker,
                               )
                             ]),
                       ),
@@ -250,7 +250,7 @@ class ContactCardSocialLinks extends StatelessWidget {
                     bottomRight: Radius.circular(60),
                     bottomLeft: Radius.circular(2),
                   ),
-                  color: primaryColorDark,
+                  color: primaryColorDarker,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,7 +266,7 @@ class ContactCardSocialLinks extends StatelessWidget {
                             Shadow(
                               blurRadius: 2,
                               offset: Offset(0, 3),
-                              color: primaryColorDark,
+                              color: primaryColorDarker,
                             )
                           ]),
                     ),
@@ -391,7 +391,7 @@ class SocialMediaLabel extends StatelessWidget {
             color: labelColor ?? primaryColor,
             shadows: const [
               BoxShadow(
-                color: primaryColorDark,
+                color: primaryColorDarker,
                 offset: Offset(0.9, 0.7),
               ),
               BoxShadow(

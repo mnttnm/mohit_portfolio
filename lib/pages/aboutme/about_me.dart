@@ -77,16 +77,10 @@ class ExpandableComponentState extends ConsumerState<ExpandableComponent> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           width: double.infinity,
-          height: 40,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: secondaryGreyColor,
-            ),
-          ),
           child: Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.topLeft,
             child: TextButton(
               onPressed: () {
                 setState(() {

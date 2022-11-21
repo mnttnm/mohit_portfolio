@@ -142,7 +142,7 @@ class TabbedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 4,
-      initialIndex: 2,
+      initialIndex: 0,
       child: Scaffold(
         appBar: Header(),
         body: TabBarView(

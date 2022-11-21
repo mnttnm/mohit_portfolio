@@ -14,15 +14,15 @@ class PageContentLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColorDark,
+      backgroundColor: primaryColorDarker,
       body: Row(
         children: [
           Container(
             width: 360,
             height: double.infinity,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: secondaryGreyColor,
+            decoration: const BoxDecoration(
+              border: Border.symmetric(
+                vertical: BorderSide(color: secondaryGreyColor),
               ),
             ),
             child: Column(
@@ -35,9 +35,11 @@ class PageContentLayout extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: 360,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: secondaryGreyColor,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: secondaryGreyColor,
+                        ),
                       ),
                     ),
                     child: sideBarChild,
@@ -47,8 +49,9 @@ class PageContentLayout extends StatelessWidget {
             ),
           ),
           Expanded(
+              child: SizedBox(
             child: mainAreaChild,
-          )
+          ))
         ],
       ),
     );

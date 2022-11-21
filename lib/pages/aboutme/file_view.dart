@@ -24,10 +24,7 @@ class FileView extends ConsumerWidget {
               Container(
                 width: double.infinity,
                 height: 35,
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  border: Border.all(color: secondaryGreyColor),
-                ),
+                color: primaryColorDark,
                 child: Row(
                   children: currentState.openFiles!.map((e) {
                     return FileTabElement(
@@ -91,7 +88,7 @@ class FileTabElement extends ConsumerWidget {
 
     return Container(
       padding: const EdgeInsets.all(4.0),
-      color: isSelected == true ? primaryColorDark : primaryColor,
+      color: isSelected == true ? primaryColorDarker : primaryColor,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
