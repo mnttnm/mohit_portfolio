@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-enum TechStack { flutter, react, python, typescript, javascript, dart }
+import 'package:mohit_portfolio/pages/projects/project.dart';
+import 'package:mohit_portfolio/pages/projects/project_list.dart';
 
 const Map<TechStack, bool> initialMapping = {
   TechStack.flutter: false,
@@ -12,52 +12,6 @@ const Map<TechStack, bool> initialMapping = {
   TechStack.typescript: false
 };
 
-const List<Project> listOfProjects = [
-  Project(
-      title: 'project 1',
-      projectDescription: 'this is project 1',
-      techStackUsed: [
-        TechStack.dart,
-        TechStack.flutter,
-      ]),
-  Project(
-      title: 'project 2',
-      projectDescription: 'this is project 2',
-      techStackUsed: [TechStack.typescript, TechStack.react]),
-  Project(
-      title: 'project 3',
-      projectDescription: 'this is project 3',
-      techStackUsed: [TechStack.python]),
-  Project(
-      title: 'project 1',
-      projectDescription: 'this is project 1',
-      techStackUsed: [
-        TechStack.dart,
-        TechStack.flutter,
-      ]),
-  Project(
-      title: 'project 2',
-      projectDescription: 'this is project 2',
-      techStackUsed: [TechStack.typescript, TechStack.react]),
-];
-
-class Project {
-  final String title;
-  final List<TechStack>? techStackUsed;
-  final String projectDescription;
-  final String? githubLink;
-  final String? liveProjectLink;
-  final String? thumbnail;
-
-  const Project({
-    required this.title,
-    this.techStackUsed,
-    required this.projectDescription,
-    this.githubLink,
-    this.liveProjectLink,
-    this.thumbnail,
-  });
-}
 
 @immutable
 class ProjectsViewState {

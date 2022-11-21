@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:mohit_portfolio/constants/social_links.dart';
 import 'package:mohit_portfolio/widgets/footer.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact.dart';
 import 'package:mohit_portfolio/pages/hello/hello.dart';
 import 'package:mohit_portfolio/pages/projects/projects.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Header extends StatelessWidget with PreferredSizeWidget {
   const Header({super.key});
@@ -26,10 +28,34 @@ class Header extends StatelessWidget with PreferredSizeWidget {
       ),
       leadingWidth: 400,
       shape: Border.all(color: secondaryGreyColor),
+      actions: [
+        Tooltip(
+          message: 'Download Resume',
+          child: TextButton(
+            onPressed: () async {
+              await launchUrlString(resumeUrl);
+            },
+            style: TextButton.styleFrom(
+              foregroundColor: accentOrangeColor,
+            ),
+            child: Row(
+              children: const [
+                Icon(
+                  Icons.download,
+                ),
+                SizedBox(
+                  width: 4,
+                ),
+                Text('Resume'),
+              ],
+            ),
+          ),
+        )
+      ],
       title: const TabBar(
         isScrollable: true,
         indicatorColor: accentOrangeColor,
-        indicatorSize: TabBarIndicatorSize.label,
+        indicatorSize: TabBarIndicatorSize.tab,
         indicatorWeight: 8,
         labelPadding: EdgeInsets.zero,
         labelColor: secondaryWhiteColor,
@@ -45,7 +71,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(56);
+  Size get preferredSize => const Size.fromHeight(42);
 }
 
 class TabElement extends StatelessWidget {
@@ -60,7 +86,6 @@ class TabElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 200,
-      height: 60,
       child: DecoratedBox(
         decoration: const BoxDecoration(
             border: Border(
@@ -69,6 +94,7 @@ class TabElement extends StatelessWidget {
           ),
         )),
         child: Tab(
+          height: 42,
           text: title,
         ),
       ),
@@ -90,7 +116,6 @@ class NavElement extends StatelessWidget {
     final String location = GoRouter.of(context).location;
     return Container(
       width: 200,
-      height: 56,
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(border: Border.all(color: secondaryGreyColor)),
       child: TextButton(
@@ -117,14 +142,15 @@ class TabbedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 4,
-      initialIndex: 0,
+      initialIndex: 2,
       child: Scaffold(
         appBar: Header(),
-        body: TabBarView(children: [
-          HelloPage(),
-          AboutMePage(),
-          ProjectPage(),
-          ContactPage(),
+        body: TabBarView(
+          children: [
+            HelloPage(),
+            AboutMePage(),
+            ProjectPage(),
+            ContactPage(),
           ],
         ),
         bottomNavigationBar: Footer(),

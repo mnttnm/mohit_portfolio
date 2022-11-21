@@ -29,6 +29,7 @@ class Footer extends StatelessWidget {
               'assets/icons/yana-darelova.png',
             ),
             buttonLabelColor: secondaryGreyColor,
+            toolTip: 'Yanka Darelova',
           ),
           const VerticalDivider(
             color: secondaryGreyColor,
@@ -40,6 +41,7 @@ class Footer extends StatelessWidget {
               'assets/icons/icon_flutter.png',
             ),
             buttonLabelColor: secondaryGreyColor,
+            toolTip: 'Flutter',
           ),
           const VerticalDivider(
             color: secondaryGreyColor,
@@ -52,19 +54,23 @@ class Footer extends StatelessWidget {
               color: secondaryWhiteColor,
             ),
             buttonLabelColor: secondaryGreyColor,
+            toolTip: 'Mohit Tater - Linkedin',
           ),
           const VerticalDivider(
             color: secondaryGreyColor,
           ),
-          IconButton(
-            onPressed: () async {
-              await launchUrlString(twitterProfileUrl);
-            },
-            icon: Image.asset(
-              twitterIconPath,
-              color: secondaryWhiteColor,
-              width: 18,
-              height: 18,
+          Tooltip(
+            message: 'Mohit Tater - Twitter',
+            child: IconButton(
+              onPressed: () async {
+                await launchUrlString(twitterProfileUrl);
+              },
+              icon: Image.asset(
+                twitterIconPath,
+                color: secondaryWhiteColor,
+                width: 18,
+                height: 18,
+              ),
             ),
           ),
           const VerticalDivider(
@@ -82,6 +88,7 @@ class Footer extends StatelessWidget {
               color: secondaryWhiteColor,
             ),
             buttonLabelColor: secondaryGreyColor,
+            toolTip: 'Github',
           ),
           const SizedBox(
             width: 10,

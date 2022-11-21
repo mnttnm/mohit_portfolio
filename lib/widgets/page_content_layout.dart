@@ -47,9 +47,8 @@ class PageContentLayout extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: SizedBox(
             child: mainAreaChild,
-          ))
+          )
         ],
       ),
     );

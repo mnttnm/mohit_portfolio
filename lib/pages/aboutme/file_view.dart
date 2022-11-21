@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
-import 'package:mohit_portfolio/widgets/markdown_renderer.dart';
 import 'package:mohit_portfolio/pages/aboutme/about_me_state_notifier.dart';
 import 'package:mohit_portfolio/resource.dart';
 
@@ -13,8 +12,11 @@ class FileView extends ConsumerWidget {
     AboutMePageState currentState = ref.watch(aboutMeProvider);
 
     return currentState.openFiles!.isEmpty == true
-        ? const Text(
-            'You can start with about_me section on the left to review profile of Mohit Tater')
+        ? const Center(
+            child: Text(
+              'You can start with about_me section on the left to review profile of Mohit Tater',
+            ),
+          )
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
