@@ -63,23 +63,25 @@ class HelloPage extends StatelessWidget {
                             color: secondaryGreyColor,
                           ),
                     ),
+                    const Text(' * if you are looking for Flutter developers,'),
                     Row(
                       children: [
                         const Text(' * Let\'s'),
-                        TextButton(
-                            onPressed: () {
-                              DefaultTabController.of(context)!.animateTo(3);
-                            },
-                            child: const Text(
-                              'connect,',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            )),
-                        const Text('if you are looking'),
+                        Tooltip(
+                          message: 'Hire Me!',
+                          child: TextButton(
+                              onPressed: () {
+                                DefaultTabController.of(context)!.animateTo(3);
+                              },
+                              child: const Text(
+                                'connect.',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              )),
+                        ),
                       ],
                     ),
-                    const Text(' * for Flutter developer'),
                     const Text(' */'),
                   ],
                 ),
