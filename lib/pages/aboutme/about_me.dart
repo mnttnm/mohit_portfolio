@@ -157,7 +157,7 @@ class ExpandedFile extends ConsumerWidget {
         // it is the last file which is being closed.
         style: TextButton.styleFrom(
           foregroundColor:
-              isActive == true ? accentOrangeColor : secondaryBlueColor,
+              isActive == true ? accentOrangeColor : primaryColorLight,
         ),
         child: Row(
           children: [
