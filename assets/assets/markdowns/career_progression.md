@@ -17,8 +17,8 @@
 - Typescript module with interface for processing and filter operation for search results | **Typescript**
 - PRD creation and release management for Authentication and RBAC features for QueryAI web app | **Figma, Jira**  
 
-  
-  
+---  
+
 #### Software Development Engineer @ BlueJeans Networks Bangalore | Aug 2016 - Aug 2020
 
 ###### Responsibilities
@@ -31,7 +31,7 @@ that is responsible for various Audio, Video, Screen Capture and network-resilie
 - End to End development of a feature which allows Whiteboarding and Annotation operations while sharing content in a Video Conference. | **Swift, Xcode**
 - Network monitor module for iOS SDK. | **C++, Objective C, Xcode**
 
-  
+---
   
 #### Software Development Engineer @ BlueJeans Networks Bangalore | Jul 2015 - Jul 2016
 
