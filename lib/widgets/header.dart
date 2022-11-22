@@ -79,7 +79,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
         indicatorWeight: 8,
         labelPadding: EdgeInsets.zero,
         labelColor: secondaryWhiteColor,
-        unselectedLabelColor: secondaryGreyColor,
+        unselectedLabelColor: primaryColorLight,
         tabs: [
           TabElement(title: '_hello'),
           TabElement(title: '_about_me'),

@@ -42,7 +42,8 @@ class MyApp extends StatelessWidget {
             labelMedium: TextStyle(fontSize: 16),
             bodyText1: TextStyle(fontSize: 18, color: secondaryGreyColor),
             bodyText2: TextStyle(fontSize: 14, color: secondaryGreyColor),
-          )),
+        ),
+      ),
       home: const TabbedHeader(),
     );
   }

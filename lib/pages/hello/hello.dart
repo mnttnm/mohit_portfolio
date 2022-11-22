@@ -74,7 +74,7 @@ class HelloPage extends StatelessWidget {
                                 DefaultTabController.of(context)!.animateTo(3);
                               },
                               child: const Text(
-                                'connect.',
+                                'CONNECT',
                                 style: TextStyle(
                                   fontSize: 18,
                                 ),

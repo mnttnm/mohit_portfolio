@@ -13,7 +13,7 @@ class MarkdownFromFileWidget extends StatelessWidget {
         return Markdown(
           data: snapshot.data ?? '# No Data',
           padding: const EdgeInsets.all(20),
-          styleSheetTheme: MarkdownStyleSheetBaseTheme.material,
+            styleSheet: MarkdownStyleSheet(p: const TextStyle(fontSize: 15))
         );
       },
     );
