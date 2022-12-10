@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class IconLabelButton extends StatelessWidget {
@@ -23,10 +24,13 @@ class IconLabelButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
+        ResponsiveVisibility(
+          hiddenWhen: const [Condition.smallerThan(name: DESKTOP)],
+          child: Text(
           buttonLabel,
           style: TextStyle(
             color: buttonLabelColor ?? secondaryGreyColor,
+          ),
           ),
         ),
         Tooltip(
