@@ -21,40 +21,18 @@ class Header extends StatelessWidget with PreferredSizeWidget {
       // todo: geturedetector is not getting applied on the whole leading widget \
       // only kicking in when the cursor is on the lines, probably it won't be an issue
       // as user will click with fingers.
-      leading: GestureDetector(
-        onTap: () {
-          print('Open');
-          Scaffold.of(context).openDrawer();
-        },
-        child: Padding(
+      leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
-                child: ResponsiveRowColumn(
-                  layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
-                      ? ResponsiveRowColumnType.COLUMN
-                      : ResponsiveRowColumnType.ROW,
-                  columnSpacing: 3,
-                  children: const [
-                    ResponsiveRowColumnItem(
-                      child: TitleBarDefaultButton(
-                        buttonColor: closeButtonColor,
-                      ),
-                    ),
-                    ResponsiveRowColumnItem(
-                      child: TitleBarDefaultButton(
-                        buttonColor: minimiseButtonColor,
-                      ),
-                    ),
-                    ResponsiveRowColumnItem(
-                      child: TitleBarDefaultButton(
-                        buttonColor: fullscreenButtonColor,
-                      ),
-                    )
-                  ],
-                ),
+              child: ResponsiveValue(context,
+                  defaultValue: const LeadingWidgetDesktop(),
+                  valueWhen: const [
+                    Condition.smallerThan(
+                        name: DESKTOP, value: LeadingWidgetMobile())
+                  ]).value!,
               ),
               const Spacer(),
               ResponsiveVisibility(
@@ -72,7 +50,6 @@ class Header extends StatelessWidget with PreferredSizeWidget {
               ),
             ],
           ),
-        ),
       ),
       leadingWidth: ResponsiveValue(
         context,
@@ -125,7 +102,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
       ],
       title: const ResponsiveVisibility(
         hiddenWhen: [
-          Condition.smallerThan(name: DESKTOP, value: Text('mohit_tater')),
+          Condition.smallerThan(name: DESKTOP),
         ],
         child: TabBar(
           isScrollable: true,
@@ -150,6 +127,86 @@ class Header extends StatelessWidget with PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(42);
 }
 
+class LeadingWidgetDesktop extends StatelessWidget {
+  const LeadingWidgetDesktop({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveRowColumn(
+      layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      columnSpacing: 3,
+      children: const [
+        ResponsiveRowColumnItem(
+          child: TitleBarDefaultButton(
+            buttonColor: closeButtonColor,
+          ),
+        ),
+        ResponsiveRowColumnItem(
+          child: TitleBarDefaultButton(
+            buttonColor: minimiseButtonColor,
+          ),
+        ),
+        ResponsiveRowColumnItem(
+          child: TitleBarDefaultButton(
+            buttonColor: fullscreenButtonColor,
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class LeadingWidgetMobile extends StatelessWidget {
+  const LeadingWidgetMobile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (() {
+        Scaffold.of(context).openDrawer();
+      }),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: const [
+          DrawerButtonElement(
+            elementColor: closeButtonColor,
+          ),
+          DrawerButtonElement(
+            elementColor: minimiseButtonColor,
+          ),
+          DrawerButtonElement(
+            elementColor: fullscreenButtonColor,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class DrawerButtonElement extends StatelessWidget {
+  const DrawerButtonElement({
+    Key? key,
+    required this.elementColor,
+  }) : super(key: key);
+  final Color elementColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // margin: const EdgeInsets.only(bottom: 4),
+      width: 30,
+      height: 4,
+      color: elementColor,
+    );
+  }
+}
+
 class TitleBarDefaultButton extends StatelessWidget {
   const TitleBarDefaultButton({
     super.key,
@@ -159,26 +216,13 @@ class TitleBarDefaultButton extends StatelessWidget {
   final Color buttonColor;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveValue(
-      context,
-      defaultValue: Padding(
-        padding: const EdgeInsets.all(3.0),
-        child: CircleAvatar(
-          backgroundColor: buttonColor,
-          radius: 8,
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: CircleAvatar(
+        backgroundColor: buttonColor,
+        radius: 8,
       ),
-      valueWhen: [
-        Condition.smallerThan(
-          name: DESKTOP,
-          value: Container(
-            width: 30,
-            height: 5,
-            color: buttonColor,
-          ),
-        )
-      ],
-    ).value!;
+    );
   }
 }
 

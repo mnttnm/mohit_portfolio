@@ -20,7 +20,7 @@ class Footer extends StatelessWidget {
           color: primaryColorLight,
         )),
       ),
-      height: 30,
+      height: 40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
