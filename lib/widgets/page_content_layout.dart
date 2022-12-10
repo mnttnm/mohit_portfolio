@@ -19,7 +19,6 @@ class PageContentLayout extends StatelessWidget {
         children: [
           Container(
             width: 360,
-            height: double.infinity,
             decoration: const BoxDecoration(
               border: Border.symmetric(
                 vertical: BorderSide(color: secondaryGreyColor),

@@ -7,6 +7,7 @@ import 'package:mohit_portfolio/pages/aboutme/about_me.dart';
 import 'package:mohit_portfolio/pages/contact_me/contact.dart';
 import 'package:mohit_portfolio/pages/hello/hello.dart';
 import 'package:mohit_portfolio/pages/projects/projects.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Header extends StatelessWidget with PreferredSizeWidget {
@@ -16,76 +17,131 @@ class Header extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: false,
-      titleSpacing: 0.0,
       backgroundColor: primaryColor,
-      leading: Container(
-        padding: const EdgeInsets.all(8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              children: const [
-                TitleBarDefaultButton(
-                  buttonColor: closeButtonColor,
+      // todo: geturedetector is not getting applied on the whole leading widget \
+      // only kicking in when the cursor is on the lines, probably it won't be an issue
+      // as user will click with fingers.
+      leading: GestureDetector(
+        onTap: () {
+          print('Open');
+          Scaffold.of(context).openDrawer();
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ResponsiveRowColumn(
+                  layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? ResponsiveRowColumnType.COLUMN
+                      : ResponsiveRowColumnType.ROW,
+                  columnSpacing: 3,
+                  children: const [
+                    ResponsiveRowColumnItem(
+                      child: TitleBarDefaultButton(
+                        buttonColor: closeButtonColor,
+                      ),
+                    ),
+                    ResponsiveRowColumnItem(
+                      child: TitleBarDefaultButton(
+                        buttonColor: minimiseButtonColor,
+                      ),
+                    ),
+                    ResponsiveRowColumnItem(
+                      child: TitleBarDefaultButton(
+                        buttonColor: fullscreenButtonColor,
+                      ),
+                    )
+                  ],
                 ),
-                TitleBarDefaultButton(
-                  buttonColor: minimiseButtonColor,
+              ),
+              const Spacer(),
+              ResponsiveVisibility(
+                hiddenWhen: const [
+                  Condition.smallerThan(
+                    name: DESKTOP,
+                  )
+                ],
+                child: Expanded(
+                  child: Text(
+                    'mohit-tater',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                 ),
-                TitleBarDefaultButton(
-                  buttonColor: fullscreenButtonColor,
-                )
-              ],
-            ),
-            const SizedBox(
-              width: 40,
-            ),
-            Text(
-              'mohit-tater',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
-      leadingWidth: 400,
+      leadingWidth: ResponsiveValue(
+        context,
+        defaultValue: 400.0,
+        valueWhen: const [
+          Condition.smallerThan(
+            name: DESKTOP,
+            value: 100.0,
+          )
+        ],
+      ).value,
       shape: Border.all(color: secondaryGreyColor),
       actions: [
-        Tooltip(
-          message: 'Download Resume',
-          child: TextButton(
-            onPressed: () async {
-              await launchUrlString(resumeUrl);
-            },
-            style: TextButton.styleFrom(
-              foregroundColor: accentOrangeColor,
-            ),
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.download,
+        ResponsiveValue(context,
+            defaultValue: Tooltip(
+              message: 'Download Resume',
+              child: TextButton(
+                onPressed: () async {
+                  await launchUrlString(resumeUrl);
+                },
+                style: TextButton.styleFrom(
+                  foregroundColor: accentOrangeColor,
                 ),
-                SizedBox(
-                  width: 4,
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.download,
+                    ),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      'Resume',
+                    ),
+                    SizedBox(
+                      width: 4,
+                    )
+                  ],
                 ),
-                Text('Resume'),
-              ],
+              ),
             ),
-          ),
-        )
+            valueWhen: const [
+              Condition.smallerThan(
+                  name: DESKTOP,
+                  value: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text('mohit_tater'),
+                  ))
+            ]).value!
       ],
-      title: const TabBar(
-        isScrollable: true,
-        indicatorColor: accentOrangeColor,
-        indicatorSize: TabBarIndicatorSize.tab,
-        indicatorWeight: 8,
-        labelPadding: EdgeInsets.zero,
-        labelColor: secondaryWhiteColor,
-        unselectedLabelColor: primaryColorLight,
-        tabs: [
-          TabElement(title: '_hello'),
-          TabElement(title: '_about_me'),
-          TabElement(title: '_projects'),
-          TabElement(title: '_contact_me'),
+      title: const ResponsiveVisibility(
+        hiddenWhen: [
+          Condition.smallerThan(name: DESKTOP, value: Text('mohit_tater')),
         ],
+        child: TabBar(
+          isScrollable: true,
+          indicatorColor: accentOrangeColor,
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicatorWeight: 8,
+          labelPadding: EdgeInsets.zero,
+          labelColor: secondaryWhiteColor,
+          unselectedLabelColor: primaryColorLight,
+          tabs: [
+            TabElement(title: '_hello'),
+            TabElement(title: '_about_me'),
+            TabElement(title: '_projects'),
+            TabElement(title: '_contact_me'),
+          ],
+        ),
       ),
     );
   }
@@ -103,13 +159,26 @@ class TitleBarDefaultButton extends StatelessWidget {
   final Color buttonColor;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: CircleAvatar(
-        backgroundColor: buttonColor,
-        radius: 8,
+    return ResponsiveValue(
+      context,
+      defaultValue: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: CircleAvatar(
+          backgroundColor: buttonColor,
+          radius: 8,
+        ),
       ),
-    );
+      valueWhen: [
+        Condition.smallerThan(
+          name: DESKTOP,
+          value: Container(
+            width: 30,
+            height: 5,
+            color: buttonColor,
+          ),
+        )
+      ],
+    ).value!;
   }
 }
 
@@ -182,17 +251,20 @@ class TabbedHeader extends StatelessWidget {
     return const DefaultTabController(
       length: 4,
       initialIndex: 0,
-      child: Scaffold(
-        appBar: Header(),
-        body: TabBarView(
-          children: [
-            HelloPage(),
-            AboutMePage(),
-            ProjectPage(),
-            ContactPage(),
-          ],
+      child: SafeArea(
+        child: Scaffold(
+          appBar: Header(),
+          drawer: Drawer(),
+          body: TabBarView(
+            children: [
+              HelloPage(),
+              AboutMePage(),
+              ProjectPage(),
+              ContactPage(),
+            ],
+          ),
+          bottomNavigationBar: Footer(),
         ),
-        bottomNavigationBar: Footer(),
       ),
     );
   }

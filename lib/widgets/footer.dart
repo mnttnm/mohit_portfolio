@@ -3,6 +3,7 @@ import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/constants/icon_assets.dart';
 import 'package:mohit_portfolio/constants/social_links.dart';
 import 'package:mohit_portfolio/widgets/icon_label_button.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {
@@ -19,8 +20,9 @@ class Footer extends StatelessWidget {
           color: primaryColorLight,
         )),
       ),
-      height: 40,
+      height: 30,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconLabelButton(
             buttonLabel: 'Design By',
@@ -76,9 +78,9 @@ class Footer extends StatelessWidget {
           const VerticalDivider(
             color: secondaryGreyColor,
           ),
-          const Spacer(),
-          const VerticalDivider(
-            color: secondaryGreyColor,
+          const ResponsiveVisibility(
+            hiddenWhen: [Condition.smallerThan(name: DESKTOP)],
+            child: Spacer(),
           ),
           IconLabelButton(
             buttonLabel: 'Source code @',

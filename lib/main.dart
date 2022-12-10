@@ -1,16 +1,22 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mohit_portfolio/constants/colors.dart';
 import 'package:mohit_portfolio/constants.dart';
 import 'package:mohit_portfolio/widgets/header.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   runApp(
-    // For widgets to be able to read providers, we need to wrap the entire
+    DevicePreview(
+      enabled: !kReleaseMode,
+      // For widgets to be able to read providers, we need to wrap the entire
     // application in a "ProviderScope" widget. This is where the state of our providers will be stored.
     // Adding ProviderScope enables Riverpod for the entire project
-    const ProviderScope(
+      builder: (context) => const ProviderScope(
       child: MyApp(),
+      ), // Wrap your app
     ),
   );
 }
@@ -23,6 +29,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mohit Tater',
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: (context, child) => DevicePreview.appBuilder(
+        context,
+        ResponsiveWrapper.builder(
+          ClampingScrollWrapper.builder(context, child!),
+          breakpoints: const [
+            ResponsiveBreakpoint.tag(350, name: MOBILE),
+            ResponsiveBreakpoint.tag(800, name: DESKTOP),
+          ],
+        ),
+      ),
+      
       theme: ThemeData(
           // This is the theme of your application.
           //
