@@ -58,18 +58,16 @@ class HelloPage extends StatelessWidget {
                       height: 12,
                     ),
                     Text(
-                      '/* I am currently looking for new Opportunity!',
+                      '/* Join me on my quest to become a product guy and, ',
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(
                             color: secondaryGreyColor,
                           ),
                     ),
-                    const Text(' * if you are looking for Flutter developers,'),
+                    const Text(' * let's create some awesome products along the way!'),
                     Row(
                       children: [
                         const Text(' * Let\'s'),
-                        Tooltip(
-                          message: 'Hire Me!',
-                          child: TextButton(
+                        TextButton(
                               onPressed: () {
                                 DefaultTabController.of(context)!.animateTo(3);
                               },
@@ -78,8 +76,8 @@ class HelloPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 18,
                                 ),
-                              )),
-                        ),
+                              ),
+                              ),
                       ],
                     ),
                     const Text(' */'),
