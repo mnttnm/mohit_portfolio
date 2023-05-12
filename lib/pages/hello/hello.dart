@@ -48,7 +48,7 @@ class HelloPage extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      '> Software Developer',
+                      '> UX Engineer',
                       style: Theme.of(context)
                           .textTheme
                           .headline2!

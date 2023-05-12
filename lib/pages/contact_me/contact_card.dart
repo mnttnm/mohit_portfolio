@@ -455,7 +455,7 @@ class CardContentProfessionalLinks extends StatelessWidget {
                       ),
                 ),
                 Text(
-                  'Software Developer',
+                  'UX Engineer',
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         color: primaryColor,
                         fontWeight: FontWeight.w600,
