@@ -63,7 +63,7 @@ class HelloPage extends StatelessWidget {
                             color: secondaryGreyColor,
                           ),
                     ),
-                    const Text(' * let's create some awesome products along the way!'),
+                    const Text(' * let\'s create some awesome products along the way!'),
                     Row(
                       children: [
                         const Text(' * Let\'s'),
