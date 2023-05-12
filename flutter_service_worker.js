@@ -45,14 +45,14 @@ const RESOURCES = {
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/FontManifest.json": "e6d3d2f95424251fd7e08a929352ce0b",
 "assets/AssetManifest.json": "68e21c17426b86281c5406f3487bcd68",
-"index.html": "a9b78f8cc2a18f68b9ebe5f020b5ffd3",
-"/": "a9b78f8cc2a18f68b9ebe5f020b5ffd3",
+"index.html": "ba693fce39c076669eea6ebe8b19ee55",
+"/": "ba693fce39c076669eea6ebe8b19ee55",
 "version.json": "c69b4ee4c5b2601f82c477ab8acfb04a",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"main.dart.js": "c681be622950289d4b737ae606d7a520",
+"main.dart.js": "9ace2ee339a904a033cf91dd03a72262",
 "manifest.json": "0f658ec01afbaefd5ab066c567d8d174"
 };
 
